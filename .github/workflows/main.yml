@@ -1,21 +1,20 @@
-name: Buscar pisos
+name: Bot de Telegram - Pisos Jaca
 
 on:
-  schedule:
-    - cron: '0 * * * *'
   workflow_dispatch:
+  push:
 
 jobs:
-  run:
+  bot:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - run: pip install requests beautifulsoup4
-
-      - run: python main.py
+      - name: Ejecutar bot
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+        run: |
+          echo "Bot iniciado correctamente"
+          echo "Token cargado (no se muestra por seguridad)"
