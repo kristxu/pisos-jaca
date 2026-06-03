@@ -6,3 +6,4 @@ URL = "https://www.idealista.com/alquiler-viviendas/jaca-huesca/con-precio-hasta
 html = requests.get(URL).text
 
 print(html[:500])
+# prueba
