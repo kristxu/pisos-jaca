@@ -1,20 +1,25 @@
-name: Bot de Telegram - Pisos Jaca
+name: Pisos Jaca - Alertas
 
 on:
+  schedule:
+    - cron: "*/30 * * * *"  # cada 30 minutos
   workflow_dispatch:
-  push:
 
 jobs:
   bot:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Descargar repositorio
+      - name: Checkout repo
         uses: actions/checkout@v4
+
+      - name: Instalar Python y dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
 
       - name: Ejecutar bot
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
         run: |
-          echo "Bot iniciado correctamente"
-          echo "Token cargado (no se muestra por seguridad)"
+          python bot.py
