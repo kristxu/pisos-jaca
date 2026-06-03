@@ -1,9 +1,24 @@
-import requests
-from bs4 import BeautifulSoup
+name: Pisos Jaca - Alertas
 
-URL = "https://www.idealista.com/alquiler-viviendas/jaca-huesca/con-precio-hasta_700/"
+on:
+  schedule:
+    - cron: "*/30 * * * *"  # cada 30 minutos
+  workflow_dispatch:
 
-html = requests.get(URL).text
+jobs:
+  bot:
+    runs-on: ubuntu-latest
 
-print(html[:500])
-# prueba
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Instalar dependencias
+        run: |
+          pip install requests
+
+      - name: Ejecutar sistema de alertas
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+        run: |
+          python bot.py
