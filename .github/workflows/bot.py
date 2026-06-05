@@ -72,6 +72,8 @@ def is_valid(piso):
 def main():
     chat_id = CHAT_ID
 
+    send_message(CHAT_ID, "TEST BOT FUNCIONA")
+    
     seen = load_seen()
     pisos = scraper_pisos()
 
