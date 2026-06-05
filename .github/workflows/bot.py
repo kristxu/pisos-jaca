@@ -72,7 +72,8 @@ def is_valid(piso):
 def main():
     chat_id = CHAT_ID
 
-    print("CHAT_ID QUE USO:", chat_id)
+    print("TOKEN:", TOKEN)
+    print("URL:", URL)
 
     send_message(chat_id, "TEST DESDE BOT")
 
