@@ -25,10 +25,15 @@ def save_seen(seen):
         json.dump(list(seen), f)
 
 def send_message(chat_id, text):
-    requests.post(f"{URL}/sendMessage", data={
+    url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
+
+    r = requests.post(url, data={
         "chat_id": chat_id,
         "text": text
     })
+
+    print("STATUS CODE:", r.status_code)
+    print("RESPUESTA TELEGRAM:", r.text)
 
 def get_chat_id():
     r = requests.get(f"{URL}/getUpdates").json()
