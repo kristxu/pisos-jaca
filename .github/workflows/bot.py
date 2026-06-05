@@ -70,8 +70,7 @@ def is_valid(piso):
 # MAIN
 # -----------------------
 def main():
- chat_id = CHAT_ID
-print("USANDO CHAT_ID:", chat_id)   
+    chat_id = CHAT_ID
 
     seen = load_seen()
     pisos = scraper_pisos()
@@ -91,6 +90,4 @@ print("USANDO CHAT_ID:", chat_id)
             seen.add(p["id"])
 
     save_seen(seen)
-
-if __name__ == "__main__":
-    main()
+    
