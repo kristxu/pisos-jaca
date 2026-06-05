@@ -65,13 +65,15 @@ def is_valid(piso):
 # -----------------------
 # MAIN
 # -----------------------
+# -----------------------
+# MAIN
+# -----------------------
 def main():
-    def main():
     chat_id = get_chat_id()
     print("CHAT_ID DETECTADO:", chat_id)
 
     if not chat_id:
-        print("No chat_id aún")
+        print("No hay chat_id todavía")
         return
 
     seen = load_seen()
