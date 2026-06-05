@@ -32,6 +32,7 @@ def send_message(chat_id, text):
 
 def get_chat_id():
     r = requests.get(f"{URL}/getUpdates").json()
+    print(r)
     for u in r.get("result", []):
         if "message" in u:
             return u["message"]["chat"]["id"]
