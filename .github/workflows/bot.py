@@ -70,12 +70,8 @@ def is_valid(piso):
 # MAIN
 # -----------------------
 def main():
-    chat_id = get_chat_id()
-    print("CHAT_ID DETECTADO:", chat_id)
-
-    if not chat_id:
-        print("No hay chat_id todavía")
-        return
+ chat_id = CHAT_ID
+print("USANDO CHAT_ID:", chat_id)   
 
     seen = load_seen()
     pisos = scraper_pisos()
