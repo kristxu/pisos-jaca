@@ -100,4 +100,7 @@ def main():
             seen.add(p["id"])
 
     save_seen(seen)
+
+    if __name__ == "__main__":
+    main()
     
