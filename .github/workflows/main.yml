@@ -21,5 +21,4 @@ jobs:
       - name: Ejecutar bot
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-        run: |
-          python .github/workflows/bot.py
+        run: python bot.py
